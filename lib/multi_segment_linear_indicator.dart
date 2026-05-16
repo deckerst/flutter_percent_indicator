@@ -278,7 +278,7 @@ class _MultiSegmentPainter extends CustomPainter {
 
   void _drawStripes(Canvas canvas, double startX, double width, double height) {
     final stripePaint = Paint()
-      ..color = Colors.white.withOpacity(0.3)
+      ..color = Colors.white.withAlpha(77)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2;
 

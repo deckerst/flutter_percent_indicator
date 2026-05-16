@@ -52,10 +52,6 @@ class _MultiSegmentDemoState extends State<MultiSegmentDemo> {
     Curves.bounceOut,
   ];
 
-  String _getCurveName(Curve curve) {
-    return curve.toString().split('.').last;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

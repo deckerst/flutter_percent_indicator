@@ -285,6 +285,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
                 backgroundColor: widget.backgroundColor,
                 barRadius: widget.barRadius ??
                     Radius.zero, // If radius is not defined, set it to zero
+                progressBorderColor: widget.progressBorderColor,
                 linearGradientBackgroundColor:
                     widget.linearGradientBackgroundColor,
                 maskFilter: widget.maskFilter,
@@ -372,11 +373,11 @@ class _LinearPainter extends CustomPainter {
     _paintBackground.color = backgroundColor;
 
     _paintLine.color =
-        progress == 0 ? progressColor.withOpacity(0.0) : progressColor;
+        progress == 0 ? progressColor.withAlpha(0) : progressColor;
 
     if (progressBorderColor != null) {
       _paintLineBorder.color = progress == 0
-          ? progressBorderColor!.withOpacity(0.0)
+          ? progressBorderColor!.withAlpha(0)
           : progressBorderColor!;
     }
   }
