@@ -160,7 +160,8 @@ class LinearPercentIndicator extends StatefulWidget {
 class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
     with SingleTickerProviderStateMixin, AutomaticKeepAliveClientMixin {
   AnimationController? _animationController;
-  Animation? _animation;
+  CurvedAnimation? _curvedAnimation;
+  Animation? _tweenAnimation;
   double _percent = 0.0;
   final _containerKey = GlobalKey();
   final _keyIndicator = GlobalKey();
@@ -171,6 +172,7 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
 
   @override
   void dispose() {
+    _curvedAnimation?.dispose();
     _animationController?.dispose();
     super.dispose();
   }
@@ -195,11 +197,12 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
       _animationController = AnimationController(
           vsync: this,
           duration: Duration(milliseconds: widget.animationDuration));
-      _animation = Tween(begin: _percent, end: widget.percent).animate(
-        CurvedAnimation(parent: _animationController!, curve: widget.curve),
+      _curvedAnimation = CurvedAnimation(parent: _animationController!, curve: widget.curve);
+      _tweenAnimation = Tween(begin: _percent, end: widget.percent).animate(
+        _curvedAnimation!
       )..addListener(() {
           setState(() {
-            _percent = _animation!.value;
+            _percent = _tweenAnimation!.value;
             widget.onPercentValue?.call(_percent);
           });
           if (widget.restartAnimation && _percent == 1.0) {
@@ -234,11 +237,13 @@ class _LinearPercentIndicatorState extends State<LinearPercentIndicator>
       if (_animationController != null) {
         _animationController!.duration =
             Duration(milliseconds: widget.animationDuration);
-        _animation = Tween(
+        _curvedAnimation?.dispose();
+        _curvedAnimation = CurvedAnimation(parent: _animationController!, curve: widget.curve);
+        _tweenAnimation = Tween(
                 begin: widget.animateFromLastPercent ? oldWidget.percent : 0.0,
                 end: widget.percent)
             .animate(
-          CurvedAnimation(parent: _animationController!, curve: widget.curve),
+          _curvedAnimation!,
         );
         _animationController!.forward(from: 0.0);
       } else {
