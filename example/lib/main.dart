@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:percent_indicator_example/sample_circular_page.dart';
 import 'package:percent_indicator_example/sample_linear_page.dart';
 import 'package:percent_indicator_example/multi_segment_page.dart';

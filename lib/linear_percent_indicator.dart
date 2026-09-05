@@ -1,6 +1,6 @@
 // ignore_for_file: unused_element
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 @Deprecated('This property is no longer used, please use barRadius instead.')
 enum LinearStrokeCap { butt, round, roundAll }

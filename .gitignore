@@ -1,20 +1,33 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
 .DS_Store
-.dart_tool/
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
 
-.packages
-.pub/
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
 .idea/
 
-build/
-ios/.generated/
-ios/Flutter/Generated.xcconfig
-ios/Runner/GeneratedPluginRegistrant.*
-example/ios/Flutter/flutter_export_environment.sh
-example/ios/Flutter/.last_build_id
-example/.idea/**
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
 
-example/.idea/libraries/Dart_SDK.xml
-example/.idea/libraries/Flutter_for_Android.xml
-example/.idea/modules.xml
-example/.idea/runConfigurations/main_dart.xml
-example/.idea/workspace.xml
+# Flutter/Dart/Pub related
+# Libraries should not include pubspec.lock, per https://dart.dev/guides/libraries/private-files#pubspeclock.
+/pubspec.lock
+**/doc/api/
+.dart_tool/
+.flutter-plugins-dependencies
+/build/
+/coverage/

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:percent_indicator/flutter_percent_indicator.dart';
 
 class MultiSegmentPage extends StatefulWidget {

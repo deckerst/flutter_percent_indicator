@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class SampleLinearPage extends StatefulWidget {
